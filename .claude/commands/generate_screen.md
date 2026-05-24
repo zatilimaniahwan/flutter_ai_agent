@@ -63,4 +63,4 @@ Before finishing, confirm:
 - [ ] Empty state has message and action button
 - [ ] Typography uses minimum 14sp for body text
 - [ ] Navigation uses GoRouter transitions
-- [ ] Code passes `flutter analyze`
+- [ ] Run `flutter analyze` and confirm zero warnings or errors
