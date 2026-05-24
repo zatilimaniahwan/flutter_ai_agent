@@ -39,7 +39,7 @@ Mobile first, card-based scrollable layout
 
 # Commands
 
-- Run app: `flutter run -d chrome`
+- Run app: `flutter run -d chrome --web-port=3000`
 - Run tests: `flutter test`
 - Get packages: `flutter pub get`
 

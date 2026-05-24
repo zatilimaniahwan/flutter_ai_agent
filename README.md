@@ -22,40 +22,40 @@ Before you start, make sure you have the following installed:
 
 ### 1. Clone the repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/zatilimaniahwan/flutter_ai_agent.git
 cd flutter_ai_agent
-\`\`\`
+```
 
 ### 2. Install Flutter dependencies
 
-\`\`\`bash
+```bash
 flutter pub get
-\`\`\`
+```
 
 ### 3. Install Claude Code
 
-\`\`\`bash
+```bash
 npm install -g @anthropic-ai/claude-code
-\`\`\`
+```
 
 ### 4. Verify Claude Code installation
 
-\`\`\`bash
+```bash
 claude --version
-\`\`\`
+```
 
 ### 5. Add Playwright MCP server
 
-\`\`\`bash
+```bash
 claude mcp add playwright npx @playwright/mcp@latest
-\`\`\`
+```
 
 ### 6. Verify MCP is connected
 
-\`\`\`bash
+```bash
 claude mcp list
-\`\`\`
+```
 
 You should see `playwright` listed.
 
@@ -63,17 +63,17 @@ You should see `playwright` listed.
 
 ### Run on Chrome (web)
 
-\`\`\`bash
+```bash
 flutter run -d chrome
-\`\`\`
+```
 
 The app will launch at `http://localhost:3000` or another available localhost port.
 
 ### Run on mobile emulator
 
-\`\`\`bash
+```bash
 flutter run
-\`\`\`
+```
 
 ## AI-Driven Workflow
 
@@ -100,13 +100,13 @@ The `CLAUDE.md` file in the project root gives Claude Code persistent context ab
 
 Open Claude Code inside the project folder:
 
-\`\`\`bash
+```bash
 claude
-\`\`\`
+```
 
 Reference the design and generate a screen:
 
-\`\`\`
+```
 @designs/dashboard_ui.png
 
 Generate Flutter home screen
@@ -115,21 +115,21 @@ based on this Canva design.
 Use the instructions from CLAUDE.md.
 
 /plan
-\`\`\`
+```
 
 Or use the custom command for consistent screen generation:
 
-\`\`\`
+```
 @designs/dashboard_ui.png
 
 /generate_screen
-\`\`\`
+```
 
 ### Step 4 — Visual review with Playwright
 
 With the app running locally, ask Claude Code to review the UI:
 
-\`\`\`
+```
 Navigate to localhost:3000
 
 Review the Flutter dashboard UI.
@@ -140,13 +140,13 @@ Analyze:
 - spacing
 - typography
 - visual consistency
-  \`\`\`
+```
 
 Claude will analyze the rendered app and suggest fixes based on the UX rules defined in CLAUDE.md.
 
 ## Project Structure
 
-\`\`\`
+```
 lib/
 ├── core/
 │ └── theme/
@@ -167,22 +167,27 @@ designs/
 │ └── generate_screen.md
 └── settings.local.json
 CLAUDE.md
-\`\`\`
+```
 
 ## MCP Permissions
 
 The `.claude/settings.local.json` file pre-configures allowed commands to avoid repeated permission prompts:
 
-\`\`\`json
+```json
 {
-"permissions": {
-"allow": [
-"Bash(flutter analyze *)",
-"Bash(node -e ' *)"
-]
+  "permissions": {
+    "allow": [
+      "Bash(flutter analyze *)",
+      "Bash(node -e ' *)",
+      "Bash(flutter run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_console_messages"
+    ]
+  }
 }
-}
-\`\`\`
+```
 
 ## Screens
 
